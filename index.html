@@ -1,169 +1,1312 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pagol Travel - Professional</title>
-<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SkyLine Tours & Travels | হজ, ওমরাহ, ট্যুর ও ভিসা সেবা</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✈️</text></svg>">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Hind Siliguri',sans-serif}
-body{background:#f1f5f9;padding-bottom:90px}
-header{background:#fff;padding:14px 5%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:99;box-shadow:0 2px 10px rgba(0,0,0,.06)}
-.btn{background:#e11d48;color:#fff;border:none;padding:10px 20px;border-radius:25px;cursor:pointer;font-weight:600}
-.page{display:none;padding:20px 5%}.page.active{display:block}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
-.card{background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 8px 25px rgba(0,0,0,.07);position:relative}
-.card img{width:100%;height:200px;object-fit:cover}.card-body{padding:15px}
-.badge{padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700}.pending{background:#fef9c3;color:#854d0e}.confirmed{background:#dcfce7;color:#166534}.rejected{background:#fee2e2;color:#991b1b}
-.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:200;align-items:center;justify-content:center;padding:15px}.modal-content{background:#fff;padding:22px;border-radius:20px;max-width:480px;width:100%;max-height:90vh;overflow:auto}
-.modal-content input,.modal-content select{width:100%;padding:12px;margin:8px 0;border:1px solid #e2e8f0;border-radius:12px}
-.bottom-nav{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #e2e8f0;display:flex;justify-content:space-around;padding:12px 0;z-index:100}
-.bottom-nav div{text-align:center;font-size:11px;cursor:pointer;color:#64748b;line-height:1.2}.bottom-nav div.active{color:#e11d48;font-weight:700}
-.totalBox{background:#0f172a;color:#fff;padding:12px;border-radius:12px;margin:10px 0;text-align:center;font-weight:700;font-size:18px}
-.setting-item{background:#fff;padding:16px;border-radius:14px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 8px rgba(0,0,0,.04)}
-.real{color:green;font-size:12px}.fake{color:red;font-size:12px}
-table{width:100%;background:#fff;border-collapse:collapse;border-radius:12px;overflow:hidden} th,td{padding:10px;border-bottom:1px solid #f1f5f9;font-size:12px}
+  * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', Tahoma, sans-serif; }
+  html { scroll-behavior:smooth; }
+  body { background:#f4f7fb; color:#222; line-height:1.6; }
+
+  /* Topbar */
+  .topbar {
+    background:#0a4d68; color:#fff; padding:8px 25px; font-size:13px;
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;
+  }
+  .topbar a { color:#ffd700; text-decoration:none; }
+
+  /* Header */
+  header {
+    background:#fff; padding:14px 25px; position:sticky; top:0; z-index:100;
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap;
+    box-shadow:0 2px 10px rgba(0,0,0,0.08);
+  }
+  .logo-area { display:flex; align-items:center; gap:10px; }
+  .logo-area h1 { font-size:20px; color:#0a4d68; }
+  .logo-area h1 span { color:#e63946; }
+  nav { display:flex; flex-wrap:wrap; align-items:center; gap:5px; }
+  nav a {
+    color:#0a4d68; text-decoration:none; padding:8px 12px; font-weight:500;
+    font-size:14px; border-radius:6px; transition:0.3s;
+  }
+  nav a:hover { background:#e8f4f8; color:#e63946; }
+  .admin-btn {
+    background:#0a4d68; color:#fff !important; padding:8px 16px !important;
+    border-radius:20px;
+  }
+  .admin-btn:hover { background:#e63946 !important; color:#fff !important; }
+
+  /* Hero */
+  .hero {
+    background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+      url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1600') center/cover;
+    height:420px; display:flex; flex-direction:column; justify-content:center;
+    align-items:center; color:#fff; text-align:center; padding:20px;
+  }
+  .hero h2 { font-size:36px; margin-bottom:12px; }
+  .hero p { font-size:17px; margin-bottom:22px; max-width:700px; }
+  .btn {
+    background:#ffd700; color:#0a4d68; padding:12px 28px; border:none;
+    border-radius:30px; font-weight:bold; cursor:pointer; font-size:15px;
+    transition:0.3s; text-decoration:none; display:inline-block;
+  }
+  .btn:hover { background:#fff; transform:scale(1.05); }
+  .btn-outline {
+    background:transparent; color:#fff; border:2px solid #fff; margin-left:10px;
+  }
+  .btn-outline:hover { background:#fff; color:#0a4d68; }
+
+  /* Trust Bar */
+  .trust-bar {
+    background:#fff; padding:18px; display:flex; justify-content:center;
+    align-items:center; gap:35px; flex-wrap:wrap;
+    box-shadow:0 2px 8px rgba(0,0,0,0.05);
+  }
+  .trust-item {
+    display:flex; align-items:center; gap:8px; font-weight:600;
+    color:#0a4d68; font-size:14px;
+  }
+
+  /* Section */
+  section { padding:55px 25px; max-width:1200px; margin:auto; }
+  section h2 {
+    text-align:center; font-size:28px; margin-bottom:10px; color:#0a4d68;
+  }
+  section h2::after {
+    content:''; width:80px; height:4px; background:#ffd700;
+    display:block; margin:12px auto 25px; border-radius:2px;
+  }
+  .section-sub {
+    text-align:center; color:#666; margin-bottom:35px;
+    max-width:700px; margin-left:auto; margin-right:auto; font-size:15px;
+  }
+
+  /* ============ SERVICE LOGO GRID (Main Feature) ============ */
+  .service-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(160px, 1fr));
+    gap:18px;
+    max-width:1100px;
+    margin:0 auto;
+  }
+  .service-card {
+    background:#fff;
+    border-radius:16px;
+    padding:22px 15px;
+    text-align:center;
+    cursor:pointer;
+    transition:all 0.35s ease;
+    box-shadow:0 4px 15px rgba(0,0,0,0.08);
+    border:2px solid transparent;
+    position:relative;
+    overflow:hidden;
+  }
+  .service-card::before {
+    content:'';
+    position:absolute; inset:0;
+    background:linear-gradient(135deg, #088395, #0a4d68);
+    opacity:0; transition:0.35s; z-index:0;
+  }
+  .service-card:hover::before { opacity:0.05; }
+  .service-card:hover {
+    transform:translateY(-8px) scale(1.03);
+    box-shadow:0 12px 30px rgba(8,131,149,0.25);
+    border-color:#088395;
+  }
+  .service-card.active {
+    border-color:#ffd700;
+    box-shadow:0 12px 30px rgba(255,215,0,0.4);
+    background:#fffdf0;
+  }
+  .service-icon {
+    font-size:46px;
+    margin-bottom:10px;
+    display:block;
+    position:relative;
+    z-index:1;
+  }
+  .service-card h3 {
+    color:#0a4d68;
+    font-size:15px;
+    margin-bottom:5px;
+    position:relative;
+    z-index:1;
+  }
+  .service-card p {
+    font-size:12px;
+    color:#666;
+    position:relative;
+    z-index:1;
+  }
+
+  /* Expandable Panel */
+  .expand-panel {
+    max-height:0;
+    overflow:hidden;
+    transition:max-height 0.5s ease, padding 0.3s ease;
+    background:#fff;
+    border-radius:16px;
+    margin-top:0;
+  }
+  .expand-panel.open {
+    max-height:3000px;
+    padding:30px 25px;
+    margin-top:25px;
+    box-shadow:0 4px 20px rgba(0,0,0,0.1);
+    border:2px solid #ffd700;
+  }
+  .expand-panel h3 {
+    color:#088395;
+    font-size:22px;
+    margin-bottom:8px;
+    text-align:center;
+  }
+  .expand-panel .panel-desc {
+    text-align:center;
+    color:#666;
+    margin-bottom:25px;
+    font-size:14px;
+  }
+
+  /* Cards inside panel */
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:18px; }
+  .card {
+    background:#f9fbfd; border-radius:12px; padding:18px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.06); transition:0.3s;
+    position:relative; border:1px solid #e8f4f8;
+  }
+  .card:hover { transform:translateY(-4px); box-shadow:0 8px 20px rgba(0,0,0,0.12); }
+  .card h4 { color:#088395; margin-bottom:8px; font-size:16px; }
+  .card .price { color:#e63946; font-weight:bold; font-size:19px; margin:10px 0; }
+  .card ul { margin-left:18px; margin-bottom:12px; font-size:13px; }
+  .card ul li { margin-bottom:3px; }
+  .badge {
+    position:absolute; top:12px; right:12px; background:#e63946; color:#fff;
+    padding:3px 10px; border-radius:20px; font-size:11px; font-weight:bold;
+  }
+  .badge-new { background:#00b894; }
+  .badge-hajj { background:#0a4d68; }
+
+  /* Reviews */
+  .review-card {
+    background:#f9fbfd; padding:18px; border-radius:12px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.06); border:1px solid #e8f4f8;
+  }
+  .stars { color:#ffd700; font-size:17px; margin-bottom:8px; }
+  .reviewer { font-weight:bold; color:#0a4d68; margin-top:10px; font-size:14px; }
+
+  /* Form */
+  .form-box {
+    background:#fff; padding:30px; border-radius:14px; max-width:800px;
+    margin:auto; box-shadow:0 4px 20px rgba(0,0,0,0.1);
+  }
+  .form-row { display:grid; grid-template-columns:1fr 1fr; gap:15px; }
+  .form-box label { display:block; margin-top:14px; font-weight:600; font-size:14px; color:#333; }
+  .form-box input, .form-box select, .form-box textarea {
+    width:100%; padding:11px 14px; margin-top:6px; border:1px solid #ccc;
+    border-radius:8px; font-size:14px; font-family:inherit;
+  }
+  .form-box input:focus, .form-box select:focus, .form-box textarea:focus {
+    outline:none; border-color:#088395; box-shadow:0 0 5px rgba(8,131,149,0.4);
+  }
+  .form-box button { margin-top:20px; width:100%; padding:14px; }
+  .required::after { content:' *'; color:#e63946; }
+
+  .pay-icons { display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; justify-content:center; }
+  .pay-icons span {
+    background:#f0f0f0; padding:7px 14px; border-radius:8px;
+    font-weight:bold; font-size:12px; border:1px solid #ddd;
+  }
+
+  /* Tracker */
+  .tracker-result {
+    margin-top:20px; padding:20px; background:#e8f4f8; border-radius:10px;
+    display:none; border-left:5px solid #088395;
+  }
+  .status-badge {
+    display:inline-block; padding:5px 14px; border-radius:20px;
+    background:#ffd700; color:#0a4d68; font-weight:bold; font-size:13px;
+  }
+  .progress-bar {
+    background:#ddd; height:8px; border-radius:4px; margin:15px 0; overflow:hidden;
+  }
+  .progress-fill {
+    background:linear-gradient(90deg,#088395,#00b894); height:100%;
+    width:30%; border-radius:4px; transition:0.5s;
+  }
+
+  /* Table */
+  .table-wrap { overflow-x:auto; }
+  table { width:100%; border-collapse:collapse; background:#fff; border-radius:10px; overflow:hidden; box-shadow:0 4px 15px rgba(0,0,0,0.08); }
+  th, td { padding:11px 14px; text-align:left; border-bottom:1px solid #eee; font-size:13px; }
+  th { background:#088395; color:#fff; }
+  tr:hover { background:#f4f7fb; }
+
+  /* ============ MODAL (Admin Login) ============ */
+  .modal-overlay {
+    position:fixed; inset:0; background:rgba(0,0,0,0.7);
+    display:none; justify-content:center; align-items:center; z-index:2000;
+    padding:20px;
+  }
+  .modal-overlay.show { display:flex; }
+  .modal {
+    background:#fff; padding:35px 30px; border-radius:16px;
+    max-width:420px; width:100%; box-shadow:0 20px 60px rgba(0,0,0,0.4);
+    animation:slideDown 0.3s ease;
+  }
+  @keyframes slideDown {
+    from { opacity:0; transform:translateY(-30px); }
+    to { opacity:1; transform:translateY(0); }
+  }
+  .modal h3 { color:#0a4d68; margin-bottom:6px; text-align:center; }
+  .modal p.sub { text-align:center; color:#666; font-size:13px; margin-bottom:20px; }
+  .modal label { display:block; margin-top:14px; font-weight:600; font-size:14px; }
+  .modal input {
+    width:100%; padding:11px 14px; margin-top:6px; border:1px solid #ccc;
+    border-radius:8px; font-size:14px;
+  }
+  .modal input:focus { outline:none; border-color:#088395; }
+  .modal .btn { width:100%; margin-top:20px; padding:13px; }
+  .modal .close-btn {
+    background:#eee; color:#333; margin-top:10px; width:100%;
+    padding:11px; border:none; border-radius:30px; cursor:pointer;
+    font-weight:bold; font-size:14px;
+  }
+  .error-msg {
+    background:#ffe5e5; color:#c0392b; padding:10px; border-radius:8px;
+    font-size:13px; margin-top:12px; display:none; text-align:center;
+  }
+
+  /* ============ ADMIN DASHBOARD ============ */
+  .admin-panel {
+    position:fixed; inset:0; background:#f4f7fb; z-index:2500;
+    display:none; overflow-y:auto;
+  }
+  .admin-panel.show { display:block; }
+  .admin-header {
+    background:linear-gradient(135deg,#0a4d68,#088395);
+    color:#fff; padding:18px 25px;
+    display:flex; justify-content:space-between; align-items:center;
+    flex-wrap:wrap; gap:10px; position:sticky; top:0; z-index:10;
+  }
+  .admin-header h2 { font-size:20px; }
+  .admin-header .logout-btn {
+    background:#e63946; color:#fff; padding:9px 20px; border:none;
+    border-radius:20px; cursor:pointer; font-weight:bold; font-size:13px;
+  }
+  .admin-body { padding:25px; max-width:1300px; margin:auto; }
+  .stats-grid {
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:15px; margin-bottom:25px;
+  }
+  .stat-card {
+    background:#fff; padding:20px; border-radius:12px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.06); text-align:center;
+    border-left:4px solid #088395;
+  }
+  .stat-card .num { font-size:28px; font-weight:bold; color:#0a4d68; }
+  .stat-card .lbl { font-size:13px; color:#666; margin-top:5px; }
+  .admin-tabs {
+    display:flex; gap:8px; margin-bottom:20px; flex-wrap:wrap;
+  }
+  .tab-btn {
+    background:#fff; color:#0a4d68; padding:10px 20px; border:2px solid #088395;
+    border-radius:25px; cursor:pointer; font-weight:bold; font-size:13px;
+    transition:0.3s;
+  }
+  .tab-btn.active, .tab-btn:hover { background:#088395; color:#fff; }
+  .admin-table { width:100%; background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 3px 12px rgba(0,0,0,0.08); }
+  .admin-table th { background:#0a4d68; color:#fff; padding:12px; font-size:13px; text-align:left; }
+  .admin-table td { padding:11px 12px; font-size:13px; border-bottom:1px solid #eee; }
+  .admin-table tr:hover { background:#f9fbfd; }
+  .status-select {
+    padding:6px 10px; border-radius:6px; border:1px solid #ccc;
+    font-size:12px; cursor:pointer;
+  }
+  .action-btn {
+    padding:5px 10px; border:none; border-radius:6px; cursor:pointer;
+    font-size:12px; margin-right:4px; font-weight:bold;
+  }
+  .btn-view { background:#3498db; color:#fff; }
+  .btn-del { background:#e63946; color:#fff; }
+  .btn-ok { background:#00b894; color:#fff; }
+  .empty-msg {
+    text-align:center; padding:40px; color:#888; font-size:15px;
+  }
+
+  /* Detail Modal */
+  .detail-row { display:flex; padding:8px 0; border-bottom:1px solid #eee; font-size:14px; }
+  .detail-row strong { min-width:130px; color:#0a4d68; }
+  .detail-row span { flex:1; word-break:break-word; }
+
+  /* Cookie Banner */
+  #cookieBanner {
+    position:fixed; bottom:0; left:0; right:0; background:#0a4d68; color:#fff;
+    padding:16px 22px; display:none; justify-content:space-between;
+    align-items:center; z-index:1000; flex-wrap:wrap; gap:12px;
+    box-shadow:0 -4px 15px rgba(0,0,0,0.2);
+  }
+  #cookieBanner button { padding:8px 18px; font-size:13px; }
+
+  /* WhatsApp Float */
+  .whatsapp-float {
+    position:fixed; bottom:22px; right:22px; background:#25D366;
+    width:54px; height:54px; border-radius:50%; display:flex;
+    align-items:center; justify-content:center; z-index:999;
+    box-shadow:0 4px 15px rgba(0,0,0,0.3); text-decoration:none;
+    font-size:26px; transition:0.3s;
+  }
+  .whatsapp-float:hover { transform:scale(1.1); }
+
+  /* Footer */
+  footer { background:#0a4d68; color:#fff; padding:45px 25px 18px; }
+  .footer-grid {
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+    gap:25px; max-width:1200px; margin:auto;
+  }
+  .footer-grid h4 { color:#ffd700; margin-bottom:14px; font-size:15px; }
+  .footer-grid a { color:#ddd; text-decoration:none; display:block; margin-bottom:7px; font-size:13px; }
+  .footer-grid a:hover { color:#ffd700; }
+  .footer-grid p { font-size:13px; color:#ddd; margin-bottom:7px; }
+  .footer-bottom {
+    text-align:center; margin-top:30px; padding-top:18px;
+    border-top:1px solid #1a6a85; font-size:13px; color:#aaa;
+  }
+
+  @media(max-width:768px){
+    .hero h2 { font-size:24px; }
+    .hero p { font-size:14px; }
+    header { flex-direction:column; gap:10px; }
+    nav { justify-content:center; }
+    .form-row { grid-template-columns:1fr; }
+    section { padding:40px 16px; }
+    .btn-outline { margin-left:0; margin-top:10px; }
+    .service-grid { grid-template-columns:repeat(auto-fit, minmax(130px,1fr)); gap:12px; }
+    .service-icon { font-size:38px; }
+  }
 </style>
 </head>
 <body>
+
+<!-- ========== COOKIE BANNER ========== -->
+<div id="cookieBanner">
+  <span>🍪 আমরা কুকি ব্যবহার করি আপনার অভিজ্ঞতা উন্নত করতে। <a href="#privacy" style="color:#ffd700;">গোপনীয়তা নীতি</a></span>
+  <div>
+    <button class="btn" onclick="acceptCookies()">সব গ্রহণ</button>
+    <button class="btn btn-outline" onclick="declineCookies()" style="color:#fff;">শুধু প্রয়োজনীয়</button>
+  </div>
+</div>
+
+<!-- ========== TOPBAR ========== -->
+<div class="topbar">
+  <div>📞 +৮৮০ ১৭XX-XXXXXX | ✉️ info@skylinetours.com</div>
+  <div>🌐 <a href="#">English</a> | <a href="#">বাংলা</a> | 💱 ৳ BDT</div>
+</div>
+
+<!-- ========== HEADER ========== -->
 <header>
-<div style="font-weight:800;color:#e11d48;font-size:20px">PAGOL TRAVEL</div>
-<div><span id="userName" style="font-weight:700;font-size:13px"></span> <button class="btn" id="authBtn" onclick="openModal('loginModal')" style="font-size:12px">লগইন</button></div>
+  <div class="logo-area">
+    <span style="font-size:28px;">✈️</span>
+    <h1>SkyLine <span>Tours</span></h1>
+  </div>
+  <nav>
+    <a href="#services">সেবাসমূহ</a>
+    <a href="#booking">বুকিং</a>
+    <a href="#tracker">ট্র্যাকার</a>
+    <a href="#reviews">রিভিউ</a>
+    <a href="#contact">যোগাযোগ</a>
+    <a href="#" class="admin-btn" onclick="openAdminLogin(event)">🔐 অ্যাডমিন</a>
+  </nav>
 </header>
 
-<div id="homePage" class="page active">
-<h2>🔥 জনপ্রিয় প্যাকেজ</h2>
-<div class="grid" id="tourGrid" style="margin-top:12px"></div>
+<!-- ========== HERO ========== -->
+<div class="hero">
+  <h2>আপনার স্বপ্নের ভ্রমণ শুরু হোক আমাদের সাথে</h2>
+  <p>হজ, ওমরাহ, ট্যুর প্যাকেজ ও বিশ্বস্ত ভিসা প্রসেসিং সেবা — বাংলাদেশ থেকে সারা বিশ্বে</p>
+  <div>
+    <a href="#services" class="btn">সেবা দেখুন</a>
+    <a href="#booking" class="btn btn-outline">বুক করুন</a>
+  </div>
 </div>
 
-<div id="dashPage" class="page">
-<h2>📊 ড্যাশবোর্ড</h2>
-<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:12px">
-<div style="background:#fff;padding:14px;border-radius:14px;text-align:center"><h3 id="totalBook">0</h3><small>বুকিং</small></div>
-<div style="background:#fff;padding:14px;border-radius:14px;text-align:center"><h3 id="totalConfirm">0</h3><small>কনফার্ম</small></div>
-<div style="background:#fff;padding:14px;border-radius:14px;text-align:center"><h3 id="totalPending">0</h3><small>পেন্ডিং</small></div>
-</div>
-<div id="dashBookings" style="margin-top:15px"></div>
+<!-- ========== TRUST BAR ========== -->
+<div class="trust-bar">
+  <div class="trust-item">🔒 SSL সুরক্ষিত পেমেন্ট</div>
+  <div class="trust-item">✅ BTB রেজিস্টার্ড</div>
+  <div class="trust-item">⭐ ৫০০+ সন্তুষ্ট গ্রাহক</div>
+  <div class="trust-item">💬 ২৪/৭ সাপোর্ট</div>
 </div>
 
-<div id="historyPage" class="page"><h2>🕘 হিস্টরি</h2><div id="historyList" style="margin-top:12px"></div></div>
+<!-- ====================================================== -->
+<!-- ============ MAIN SERVICE LOGO GRID ================== -->
+<!-- ====================================================== -->
+<section id="services">
+  <h2>🎯 আমাদের সেবাসমূহ</h2>
+  <p class="section-sub">নিচের যেকোনো সেবার আইকনে ক্লিক করুন — বিস্তারিত দেখতে পাবেন</p>
 
-<div id="profilePage" class="page">
-<h2>👤 প্রোফাইল</h2>
-<div style="background:#fff;padding:18px;border-radius:16px;margin-top:12px">
-<p><b>নাম:</b> <span id="pName">-</span></p>
-<p><b>Gmail:</b> <span id="pEmail">-</span> <span id="pEmailStatus"></span></p>
-<p style="margin-top:8px"><b>bKash:</b> <span id="pBkash">01623744440</span></p>
+  <div class="service-grid">
+    <!-- হজ -->
+    <div class="service-card" data-target="panel-hajj" onclick="toggleService(this)">
+      <span class="service-icon">🕋</span>
+      <h3>হজ প্যাকেজ</h3>
+      <p>সরকার অনুমোদিত</p>
+    </div>
+    <!-- ওমরাহ -->
+    <div class="service-card" data-target="panel-umrah" onclick="toggleService(this)">
+      <span class="service-icon">🕌</span>
+      <h3>ওমরাহ প্যাকেজ</h3>
+      <p>সারা বছর</p>
+    </div>
+    <!-- ট্যুর -->
+    <div class="service-card" data-target="panel-tour" onclick="toggleService(this)">
+      <span class="service-icon">🌍</span>
+      <h3>ট্যুর প্যাকেজ</h3>
+      <p>বিশ্বজুড়ে</p>
+    </div>
+    <!-- ভিসা -->
+    <div class="service-card" data-target="panel-visa" onclick="toggleService(this)">
+      <span class="service-icon">🛂</span>
+      <h3>ভিসা সেবা</h3>
+      <p>১০+ দেশ</p>
+    </div>
+    <!-- এয়ার টিকেট -->
+    <div class="service-card" data-target="panel-air" onclick="toggleService(this)">
+      <span class="service-icon">✈️</span>
+      <h3>এয়ার টিকেট</h3>
+      <p>সস্তা দামে</p>
+    </div>
+    <!-- হোটেল -->
+    <div class="service-card" data-target="panel-hotel" onclick="toggleService(this)">
+      <span class="service-icon">🏨</span>
+      <h3>হোটেল বুকিং</h3>
+      <p>সেরা হোটেল</p>
+    </div>
+  </div>
+
+  <!-- ===== Expand Panels ===== -->
+
+  <!-- হজ প্যানেল -->
+  <div class="expand-panel" id="panel-hajj">
+    <h3>🕋 হজ প্যাকেজ ২০২৬</h3>
+    <p class="panel-desc">সরকার অনুমোদিত ও নির্ভরযোগ্য হজ সেবা</p>
+    <div class="grid">
+      <div class="card">
+        <span class="badge badge-hajj">সরকারি</span>
+        <h4>সরকারি হজ প্যাকেজ</h4>
+        <ul>
+          <li>✅ সরকারি ব্যবস্থাপনা</li>
+          <li>✅ মক্কা-মদিনায় হোটেল</li>
+          <li>✅ ৩ বেলা খাবার</li>
+          <li>✅ জিয়ারত ট্যুর</li>
+        </ul>
+        <div class="price">৳ ৫,৮০,০০০</div>
+        <button class="btn" onclick="selectPackage('সরকারি হজ প্যাকেজ','৫৮০০০০')">আবেদন করুন</button>
+      </div>
+      <div class="card">
+        <span class="badge">প্রিমিয়াম</span>
+        <h4>প্রিমিয়াম হজ প্যাকেজ</h4>
+        <ul>
+          <li>✅ ৫ স্টার হোটেল</li>
+          <li>✅ মক্কায় হোটেল আরও কাছে</li>
+          <li>✅ অভিজ্ঞ গাইড</li>
+          <li>✅ VIP ট্রান্সপোর্ট</li>
+        </ul>
+        <div class="price">৳ ৮,৫০,০০০</div>
+        <button class="btn" onclick="selectPackage('প্রিমিয়াম হজ প্যাকেজ','৮৫০০০০')">আবেদন করুন</button>
+      </div>
+      <div class="card">
+        <h4>ইকোনমি হজ প্যাকেজ</h4>
+        <ul>
+          <li>✅ সাশ্রয়ী মূল্য</li>
+          <li>✅ সব মৌলিক সেবা</li>
+          <li>✅ জিয়ারত ট্যুর</li>
+          <li>✅ ৩ বেলা খাবার</li>
+        </ul>
+        <div class="price">৳ ৬,৫০,০০০</div>
+        <button class="btn" onclick="selectPackage('ইকোনমি হজ প্যাকেজ','৬৫০০০০')">আবেদন করুন</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ওমরাহ প্যানেল -->
+  <div class="expand-panel" id="panel-umrah">
+    <h3>🕌 ওমরাহ প্যাকেজ</h3>
+    <p class="panel-desc">সারা বছর ওমরাহ পালনের সুবিধা</p>
+    <div class="grid">
+      <div class="card">
+        <span class="badge badge-new">জনপ্রিয়</span>
+        <h4>ওমরাহ প্যাকেজ (১৫ দিন)</h4>
+        <ul>
+          <li>✅ ইকোনমি ক্লাস</li>
+          <li>✅ ৩ বেলা খাবার</li>
+          <li>✅ হোটেল + ট্রান্সপোর্ট</li>
+          <li>✅ জিয়ারত</li>
+        </ul>
+        <div class="price">৳ ১,৪৫,০০০</div>
+        <button class="btn" onclick="selectPackage('ওমরাহ প্যাকেজ ১৫ দিন','১৪৫০০০')">বুক করুন</button>
+      </div>
+      <div class="card">
+        <h4>রমজান ওমরাহ প্যাকেজ</h4>
+        <ul>
+          <li>✅ রমজানে বিশেষ সেবা</li>
+          <li>✅ ইফতার ও সেহরি</li>
+        <li>✅ হোটেল + ফ্লাইট</li>
+          <li>✅ জিয়ারত</li>
+        </ul>
+        <div class="price">৳ ১,৭৫,০০০</div>
+        <button class="btn" onclick="selectPackage('রমজান ওমরাহ','১৭৫০০০')">বুক করুন</button>
+      </div>
+      <div class="card">
+        <h4>শর্ট ওমরাহ (৭ দিন)</h4>
+        <ul>
+          <li>✅ কম সময়ে ওমরাহ</li>
+          <li>✅ দ্রুত ভিসা</li>
+          <li>✅ হোটেল + ট্রান্সপোর্ট</li>
+        </ul>
+        <div class="price">৳ ১,০৫,০০০</div>
+        <button class="btn" onclick="selectPackage('শর্ট ওমরাহ','১০৫০০০')">বুক করুন</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ট্যুর প্যানেল -->
+  <div class="expand-panel" id="panel-tour">
+    <h3>🌍 ট্যুর প্যাকেজ</h3>
+    <p class="panel-desc">বিশ্বের সেরা গন্তব্যগুলোতে ভ্রমণ</p>
+    <div class="grid">
+      <div class="card">
+        <span class="badge badge-new">নতুন</span>
+        <h4>🇹🇭 থাইল্যান্ড ট্যুর</h4>
+        <p style="font-size:13px;">ব্যাংকক - পাটায়া | ৫ দিন ৪ রাত</p>
+        <ul>
+          <li>✅ ৪ স্টার হোটেল</li>
+          <li>✅ সিটি ট্যুর</li>
+          <li>✅ ভিসা প্রসেসিং</li>
+        </ul>
+        <div class="price">৳ ৬৫,০০০</div>
+        <button class="btn" onclick="selectPackage('থাইল্যান্ড ট্যুর','৬৫০০০')">বুক করুন</button>
+      </div>
+      <div class="card">
+        <h4>🇲🇾 মালয়েশিয়া ট্যুর</h4>
+        <p style="font-size:13px;">কুয়ালালামপুর | ৪ দিন ৩ রাত</p>
+        <ul>
+          <li>✅ ৪ স্টার হোটেল</li>
+          <li>✅ জেন্টিং ট্যুর</li>
+          <li>✅ ভিসা প্রসেসিং</li>
+        </ul>
+        <div class="price">৳ ৫৮,০০০</div>
+        <button class="btn" onclick="selectPackage('মালয়েশিয়া ট্যুর','৫৮০০০')">বুক করুন</button>
+      </div>
+      <div class="card">
+        <span class="badge">হট ডিল</span>
+        <h4>🇦🇪 দুবাই ট্যুর</h4>
+        <p style="font-size:13px;">দুবাই - আবুধাবি | ৫ দিন ৪ রাত</p>
+        <ul>
+          <li>✅ ডেজার্ট সাফারি</li>
+          <li>✅ বুর্জ খলিফা</li>
+          <li>✅ ভিসা প্রসেসিং</li>
+        </ul>
+        <div class="price">৳ ১,০৫,০০০</div>
+        <button class="btn" onclick="selectPackage('দুবাই ট্যুর','১০৫০০০')">বুক করুন</button>
+      </div>
+      <div class="card">
+        <h4>🇸🇬 সিঙ্গাপুর ট্যুর</h4>
+        <p style="font-size:13px;">সিঙ্গাপুর সিটি | ৪ দিন ৩ রাত</p>
+        <ul>
+          <li>✅ সেন্টোসা আইল্যান্ড</li>
+          <li>✅ ইউনিভার্সাল স্টুডিও</li>
+          <li>✅ ভিসা প্রসেসিং</li>
+        </ul>
+        <div class="price">৳ ৭৫,০০০</div>
+        <button class="btn" onclick="selectPackage('সিঙ্গাপুর ট্যুর','৭৫০০০')">বুক করুন</button>
+      </div>
+      <div class="card">
+        <h4>🇹🇷 তুরস্ক ট্যুর</h4>
+        <p style="font-size:13px;">ইস্তাম্বুল - কাপাডোকিয়া | ৭ দিন</p>
+        <ul>
+          <li>✅ হোটেল + ব্রেকফাস্ট</li>
+          <li>✅ সিটি ট্যুর</li>
+          <li>✅ ভিসা প্রসেসিং</li>
+        </ul>
+        <div class="price">৳ ১,৩৫,০০০</div>
+        <button class="btn" onclick="selectPackage('তুরস্ক ট্যুর','১৩৫০০০')">বুক করুন</button>
+      </div>
+      <div class="card">
+        <h4>🇨🇳 চীন ট্যুর</h4>
+        <p style="font-size:13px;">বেইজিং - সাংহাই | ৬ দিন</p>
+        <ul>
+          <li>✅ গ্রেট ওয়াল</li>
+          <li>✅ হোটেল + খাবার</li>
+          <li>✅ ভিসা প্রসেসিং</li>
+        </ul>
+        <div class="price">৳ ৯৫,০০০</div>
+        <button class="btn" onclick="selectPackage('চীন ট্যুর','৯৫০০০')">বুক করুন</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ভিসা প্যানেল -->
+  <div class="expand-panel" id="panel-visa">
+    <h3>🛂 ভিসা সেবা</h3>
+    <p class="panel-desc">বাংলাদেশ থেকে ভিসা চালু থাকা দেশসমূহ</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>দেশ</th><th>ধরন</th><th>সময়</th><th>ফি</th><th>আবেদন</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>🇹🇭 থাইল্যান্ড</td><td>ট্যুরিস্ট</td><td>৫-৭ দিন</td><td>৳ ৩,৫০০</td><td><button class="btn" style="padding:5px 12px;font-size:12px" onclick="selectPackage('থাইল্যান্ড ভিসা','৩৫০০')">আবেদন</button></td></tr>
+          <tr><td>🇲🇾 মালয়েশিয়া</td><td>ট্যুরিস্ট</td><td>৭-১০ দিন</td><td>৳ ৪,০০০</td><td><button class="btn" style="padding:5px 12px;font-size:12px" onclick="selectPackage('মালয়েশিয়া ভিসা','৪০০০')">আবেদন</button></td></tr>
+          <tr><td>🇦🇪 দুবাই</td><td>ট্যুরিস্ট</td><td>৩-৫ দিন</td><td>৳ ৭,০০০</td><td><button class="btn" style="padding:5px 12px;font-size:12px" onclick="selectPackage('দুবাই ভিসা','৭০০০')">আবেদন</button></td></tr>
+          <tr><td>🇸🇦 সৌদি আরব</td><td>ওমরাহ</td><td>৭-১০ দিন</td><td>৳ ৮,০০০</td><td><button class="btn" style="padding:5px 12px;font-size:12px" onclick="selectPackage('সৌদি ভিসা','৮০০০')">আবেদন</button></td></tr>
+          <tr><td>🇸🇬 সিঙ্গাপুর</td><td>ট্যুরিস্ট</td><td>৫-৭ দিন</td><td>৳ ৩,০০০</td><td><button class="btn" style="padding:5px 12px;font-size:12px" onclick="selectPackage('সিঙ্গাপুর ভিসা','৩০০০')">আবেদন</button></td></tr>
+          <tr><td>🇮🇳 ভারত</td><td>ট্যুরিস্ট</td><td>১০-১৫ দিন</td><td>৳ ২,৫০০</td><td><button class="btn" style="padding:5px 12px;font-size:12px" onclick="selectPackage('ভারত ভিসা','২৫০০')">আবেদন</button></td></tr>
+          <tr><td>🇨🇳 চীন</td><td>ট্যুরিস্ট</td><td>৭-১০ দিন</td><td>৳ ৫,০০০</td><td><button class="btn" style="padding:5px 12px;font-size:12px" onclick="selectPackage('চীন ভিসা','৫০০০')">আবেদন</button></td></tr>
+          <tr><td>🇹🇷 তুরস্ক</td><td>ট্যুরিস্ট</td><td>১০-১৫ দিন</td><td>৳ ৬,০০০</td><td><button class="btn" style="padding:5px 12px;font-size:12px" onclick="selectPackage('তুরস্ক ভিসা','৬০০০')">আবেদন</button></td></tr>
+          <tr><td>🇯🇵 জাপান</td><td>ট্যুরিস্ট</td><td>১০-১৫ দিন</td><td>৳ ৭,৫০০</td><td><button class="btn" style="padding:5px 12px;font-size:12px" onclick="selectPackage('জাপান ভিসা','৭৫০০')">আবেদন</button></td></tr>
+          <tr><td>🇰🇷 দক্ষিণ কোরিয়া</td><td>ট্যুরিস্ট</td><td>১০-১৫ দিন</td><td>৳ ৬,৫০০</td><td><button class="btn" style="padding:5px 12px;font-size:12px" onclick="selectPackage('কোরিয়া ভিসা','৬৫০০')">আবেদন</button></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+    <!-- এয়ার টিকেট প্যানেল -->
+  <div class="expand-panel" id="panel-air">
+    <h3>✈️ এয়ার টিকেট বুকিং</h3>
+    <p class="panel-desc">দেশ-বিদেশের যেকোনো ফ্লাইট সাশ্রয়ী মূল্যে</p>
+    <div class="grid">
+      <div class="card">
+        <h4>🇧🇩 অভ্যন্তরীণ ফ্লাইট</h4>
+        <ul>
+          <li>✅ ঢাকা - কক্সবাজার</li>
+          <li>✅ ঢাকা - সিলেট</li>
+          <li>✅ ঢাকা - চট্টগ্রাম</li>
+        </ul>
+        <div class="price">৳ ৪,৫০০ থেকে</div>
+        <button class="btn" onclick="selectPackage('অভ্যন্তরীণ ফ্লাইট','৪৫০০')">বুক করুন</button>
+      </div>
+      <div class="card">
+        <h4>🌏 আন্তর্জাতিক ফ্লাইট</h4>
+        <ul>
+          <li>✅ বাংলাদেশ - থাইল্যান্ড</li>
+          <li>✅ বাংলাদেশ - দুবাই</li>
+          <li>✅ বাংলাদেশ - মালয়েশিয়া</li>
+        </ul>
+        <div class="price">৳ ৪০,০০০ থেকে</div>
+        <button class="btn" onclick="selectPackage('আন্তর্জাতিক ফ্লাইট','৪০০০০')">বুক করুন</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- হোটেল প্যানেল -->
+  <div class="expand-panel" id="panel-hotel">
+    <h3>🏨 হোটেল বুকিং</h3>
+    <p class="panel-desc">বিশ্বজুড়ে সেরা হোটেল সাশ্রয়ী দামে</p>
+    <div class="grid">
+      <div class="card">
+        <h4>💎 ৫ স্টার হোটেল</h4>
+        <ul>
+          <li>✅ বিলাসবহুল রুম</li>
+          <li>✅ ব্রেকফাস্ট সহ</li>
+          <li>✅ এয়ারপোর্ট পিকআপ</li>
+        </ul>
+        <div class="price">$৮০ / রাত থেকে</div>
+        <button class="btn" onclick="selectPackage('৫ স্টার হোটেল','৮০')">বুক করুন</button>
+      </div>
+      <div class="card">
+        <h4>🏨 ৪ স্টার হোটেল</h4>
+        <ul>
+          <li>✅ ভালো রুম</li>
+          <li>✅ ব্রেকফাস্ট</li>
+          <li>✅ সুবিধাজনক অবস্থান</li>
+        </ul>
+        <div class="price">$৫০ / রাত থেকে</div>
+        <button class="btn" onclick="selectPackage('৪ স্টার হোটেল','৫০')">বুক করুন</button>
+      </div>
+      <div class="card">
+        <h4>🏠 বাজেট হোটেল</h4>
+        <ul>
+          <li>✅ সাশ্রয়ী মূল্য</li>
+          <li>✅ পরিষ্কার রুম</li>
+          <li>✅ মৌলিক সুবিধা</li>
+        </ul>
+        <div class="price">$২৫ / রাত থেকে</div>
+        <button class="btn" onclick="selectPackage('বাজেট হোটেল','২৫')">বুক করুন</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== REVIEWS ========== -->
+<section id="reviews">
+  <h2>⭐ গ্রাহকদের মতামত</h2>
+  <p class="section-sub">৫০০+ সন্তুষ্ট গ্রাহকের আস্থা</p>
+  <div class="grid">
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>"আলহামদুলিল্লাহ! SkyLine-এর মাধ্যমে হজ পালন করেছি। সার্ভিস ছিল অসাধারণ।"</p>
+      <div class="reviewer">— মোহাম্মদ রফিকুল ইসলাম, ঢাকা</div>
+    </div>
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>"থাইল্যান্ড ট্যুর বুক করেছিলাম। সব কিছু নিখুঁত ছিল। পরিবার নিয়ে দারুণ সময় কেটেছে।"</p>
+      <div class="reviewer">— ফারহানা আক্তার, চট্টগ্রাম</div>
+    </div>
+    <div class="review-card">
+      <div class="stars">★★★★☆</div>
+      <p>"দুবাই ভিসা পেয়েছি মাত্র ৪ দিনে। প্রসেসিং খুব দ্রুত। ধন্যবাদ।"</p>
+      <div class="reviewer">— আব্দুল করিম, সিলেট</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== BOOKING ========== -->
+<section id="booking">
+  <h2>📝 অনলাইন বুকিং ফর্ম</h2>
+  <p class="section-sub">নিচের ফর্মটি পূরণ করে বুকিং নিশ্চিত করুন</p>
+  <div class="form-box">
+    <form id="bookingForm" onsubmit="submitBooking(event)">
+      <div class="form-row">
+        <div>
+          <label class="required">পূর্ণ নাম</label>
+          <input type="text" id="fullName" required placeholder="আপনার নাম">
+        </div>
+        <div>
+          <label class="required">মোবাইল নম্বর</label>
+          <input type="tel" id="phone" required placeholder="01XXXXXXXXX" pattern="01[0-9]{9}">
+        </div>
+      </div>
+      <div class="form-row">
+        <div>
+          <label>ইমেইল</label>
+          <input type="email" id="email" placeholder="example@mail.com">
+        </div>
+        <div>
+          <label class="required">NID নম্বর</label>
+          <input type="text" id="nid" required placeholder="NID নম্বর" pattern="[0-9]{10,17}">
+        </div>
+      </div>
+      <div class="form-row">
+        <div>
+          <label class="required">পাসপোর্ট নম্বর</label>
+          <input type="text" id="passport" required placeholder="পাসপোর্ট নম্বর">
+        </div>
+        <div>
+          <label class="required">প্যাকেজ</label>
+          <select id="packageSelect" required>
+            <option value="">-- নির্বাচন --</option>
+            <option value="সরকারি হজ প্যাকেজ|৫৮০০০০">সরকারি হজ প্যাকেজ - ৳৫,৮০,০০০</option>
+            <option value="প্রিমিয়াম হজ প্যাকেজ|৮৫০০০০">প্রিমিয়াম হজ প্যাকেজ - ৳৮,৫০,০০০</option>
+            <option value="ইকোনমি হজ প্যাকেজ|৬৫০০০০">ইকোনমি হজ প্যাকেজ - ৳৬,৫০,০০০</option>
+            <option value="ওমরাহ প্যাকেজ ১৫ দিন|১৪৫০০০">ওমরাহ প্যাকেজ - ৳১,৪৫,০০০</option>
+            <option value="রমজান ওমরাহ|১৭৫০০০">রমজান ওমরাহ - ৳১,৭৫,০০০</option>
+            <option value="থাইল্যান্ড ট্যুর|৬৫০০০">থাইল্যান্ড ট্যুর - ৳৬৫,০০০</option>
+            <option value="মালয়েশিয়া ট্যুর|৫৮০০০">মালয়েশিয়া ট্যুর - ৳৫৮,০০০</option>
+            <option value="দুবাই ট্যুর|১০৫০০০">দুবাই ট্যুর - ৳১,০৫,০০০</option>
+            <option value="সিঙ্গাপুর ট্যুর|৭৫০০০">সিঙ্গাপুর ট্যুর - ৳৭৫,০০০</option>
+            <option value="তুরস্ক ট্যুর|১৩৫০০০">তুরস্ক ট্যুর - ৳১,৩৫,০০০</option>
+            <option value="চীন ট্যুর|৯৫০০০">চীন ট্যুর - ৳৯৫,০০০</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div>
+          <label>যাত্রীর সংখ্যা</label>
+          <input type="number" id="persons" value="1" min="1" max="20">
+        </div>
+        <div>
+          <label class="required">পেমেন্ট পদ্ধতি</label>
+          <select id="paymentMethod" required>
+            <option value="">-- নির্বাচন --</option>
+            <option value="bKash">বিকাশ</option>
+            <option value="Nagad">নগদ</option>
+            <option value="Rocket">রকেট</option>
+            <option value="Bank">ব্যাংক</option>
+            <option value="Card">কার্ড</option>
+          </select>
+        </div>
+      </div>
+      <label class="required">পেমেন্ট স্ক্রিনশট (jpg/png)</label>
+      <input type="file" id="paymentSS" accept="image/*" required>
+      <label>অতিরিক্ত নোট</label>
+      <textarea id="note" rows="3" placeholder="বিশেষ অনুরোধ"></textarea>
+      <div class="pay-icons">
+        <span>💳 bKash</span><span>💳 Nagad</span>
+        <span>💳 Rocket</span><span>💳 Card</span><span>🏦 Bank</span>
+      </div>
+      <button type="submit" class="btn">✅ বুকিং কনফার্ম</button>
+    </form>
+  </div>
+</section>
+
+<!-- ========== TRACKER ========== -->
+<section id="tracker">
+  <h2>🔍 অর্ডার / ভিসা ট্র্যাকার</h2>
+  <p class="section-sub">অর্ডার আইডি দিয়ে অবস্থা জানুন</p>
+  <div class="form-box">
+    <label>আপনার অর্ডার আইডি</label>
+    <input type="text" id="trackId" placeholder="যেমন: SKY-2026-001">
+    <button class="btn" onclick="trackOrder()">ট্র্যাক করুন</button>
+    <div class="tracker-result" id="trackerResult">
+      <h3>অর্ডার আইডি: <span id="resId"></span></h3>
+      <p><strong>গ্রাহক:</strong> <span id="resName"></span></p>
+      <p><strong>প্যাকেজ:</strong> <span id="resPkg"></span></p>
+      <p><strong>বর্তমান অবস্থা:</strong> <span class="status-badge" id="resStatus"></span></p>
+      <div class="progress-bar"><div class="progress-fill" id="resProgress"></div></div>
+      <p><strong>সর্বশেষ আপডেট:</strong> <span id="resDate"></span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CONTACT ========== -->
+<section id="contact" style="text-align:center;">
+  <h2>📞 যোগাযোগ</h2>
+  <p class="section-sub">যেকোনো প্রশ্নে আমাদের সাথে যোগাযোগ করুন</p>
+  <div class="grid" style="max-width:900px; margin:auto;">
+    <div class="card">
+      <h3>📍 ঠিকানা</h3>
+      <p>১২৩, ধানমন্ডি<br>ঢাকা-১২০৫, বাংলাদেশ</p>
+    </div>
+    <div class="card">
+      <h3>📱 ফোন ও ইমেইল</h3>
+      <p>+৮৮০ ১৭XX-XXXXXX<br>info@skylinetours.com</p>
+    </div>
+    <div class="card">
+      <h3>🕒 অফিস সময়</h3>
+      <p>শনি - বৃহস্পতি<br>সকাল ১০টা - সন্ধ্যা ৭টা</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <h4>✈️ SkyLine Tours</h4>
+      <p>বাংলাদেশ থেকে বিশ্বের যেকোনো প্রান্তে ভ্রমণ সেবা।</p>
+      <p style="margin-top:8px;">🏆 BTB রেজিস্টার্ড</p>
+    </div>
+    <div>
+      <h4>দ্রুত লিঙ্ক</h4>
+      <a href="#services">সেবাসমূহ</a>
+      <a href="#booking">বুকিং</a>
+      <a href="#tracker">ট্র্যাকার</a>
+      <a href="#contact">যোগাযোগ</a>
+    </div>
+    <div>
+      <h4>গুরুত্বপূর্ণ</h4>
+      <a href="#privacy">গোপনীয়তা নীতি</a>
+      <a href="#terms">সেবার শর্তাবলী</a>
+      <a href="#refund">রিফান্ড নীতি</a>
+    </div>
+    <div>
+      <h4>যোগাযোগ</h4>
+      <p>📍 ১২৩, ধানমন্ডি, ঢাকা</p>
+      <p>📱 +৮৮০ ১৭XX-XXXXXX</p>
+      <p>✉️ info@skylinetours.com</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© ২০২৬ SkyLine Tours & Travels | সর্বস্বত্ব সংরক্ষিত</p>
+  </div>
+</footer>
+
+<!-- ========== WHATSAPP FLOAT ========== -->
+<a href="https://wa.me/8801700000000" class="whatsapp-float" target="_blank">💬</a>
+
+<!-- ========== ADMIN LOGIN MODAL ========== -->
+<div class="modal-overlay" id="adminLoginModal">
+  <div class="modal">
+    <h3>🔐 অ্যাডমিন লগইন</h3>
+    <p class="sub">শুধুমাত্র অনুমোদিত ব্যক্তির জন্য</p>
+    <label>আইডি / ইউজারনেম</label>
+    <input type="text" id="adminUser" placeholder="admin">
+    <label>পাসওয়ার্ড</label>
+    <input type="password" id="adminPass" placeholder="••••••">
+    <div class="error-msg" id="loginError">❌ ভুল আইডি বা পাসওয়ার্ড!</div>
+    <button class="btn" onclick="adminLogin()">লগইন করুন</button>
+    <button class="close-btn" onclick="closeAdminLogin()">বন্ধ করুন</button>
+    <p style="text-align:center; font-size:11px; color:#888; margin-top:12px;">
+      ডেমো: <b>admin</b> / <b>admin123</b>
+    </p>
+  </div>
 </div>
-<div id="adminControls" style="display:none">
-<div style="background:#fff;padding:18px;border-radius:16px;margin-top:15px">
-<h3>➕ নতুন প্যাকেজ যোগ (লোগো সহ)</h3>
-<input id="newName" placeholder="জায়গার নাম, যেমন: বান্দরবান">
-<input id="newLoc" placeholder="লোকেশন">
-<input id="newPrice" type="number" placeholder="প্রতি জন দাম">
-<label style="font-size:13px;font-weight:700">লোগো / ছবি আপলোড করো:</label>
-<input id="newImgFile" type="file" accept="image/*" onchange="previewImg(event)">
-<img id="imgPreview" style="width:100%;height:150px;object-fit:cover;border-radius:10px;display:none;margin-top:8px">
-<input id="newImgUrl" placeholder="অথবা ছবির লিংক (ঐচ্ছিক)">
-<button class="btn" style="width:100%;margin-top:10px" onclick="addPackage()">প্যাকেজ সেভ করো</button>
-<p style="font-size:11px;color:#64748b;margin-top:6px">তুমি ফোন থেকে ছবি সিলেক্ট করলেই সেটা লোগো হিসেবে ওয়েবসাইটে বসে যাবে।</p>
-</div>
-<h3 style="margin-top:20px">সব বুকিং (এডমিন)</h3>
-<table><thead><tr><th>ইউজার</th><th>প্যাকেজ</th><th>TrxID</th><th>অ্যাকশন</th></tr></thead><tbody id="adminTable"></tbody></table>
-</div>
-</div>
 
-<div id="settingsPage" class="page">
-<h2>⚙️ Settings</h2>
-<div style="margin-top:12px">
-<div class="setting-item"><div><b>প্রোফাইল এডিট</b><br><small id="sEmail">-</small></div><button class="btn" style="padding:6px 12px;font-size:12px" onclick="openModal('editProfileModal')">Edit</button></div>
-<div class="setting-item"><div><b>bKash নাম্বার</b><br><small>01623744440</small></div><button class="btn" style="padding:6px 12px;background:#0f172a;font-size:12px" onclick="changeBkash()">Change</button></div>
-<div class="setting-item"><div><b>Gmail ভেরিফিকেশন</b><br><small>আসল/নকল চেক</small></div><span id="sGmailStatus"></span></div>
-<div class="setting-item"><div><b>ডাটা ক্লিয়ার</b><br><small>সব হিস্টরি মুছো</small></div><button class="btn" style="padding:6px 12px;background:#64748b;font-size:12px" onclick="clearData()">Clear</button></div>
-<div class="setting-item"><div><b>এডমিন লগইন</b><br><small>admin / admin123</small></div><button class="btn" style="padding:6px 12px;font-size:12px" onclick="openModal('adminLoginModal')">Login</button></div>
-</div>
-</div>
+<!-- ========== ADMIN DASHBOARD ========== -->
+<div class="admin-panel" id="adminPanel">
+  <div class="admin-header">
+    <h2>🎛️ Admin Dashboard — SkyLine Tours</h2>
+    <div>
+      <span style="margin-right:15px; font-size:13px;">👤 <span id="adminName">Admin</span></span>
+      <button class="logout-btn" onclick="adminLogout()">লগআউট</button>
+    </div>
+  </div>
 
-<div class="bottom-nav">
-<div class="active" onclick="switchPage('homePage',this)">🏠<br>হোম</div>
-<div onclick="switchPage('dashPage',this)">📊<br>ড্যাশবোর্ড</div>
-<div onclick="switchPage('historyPage',this)">🕘<br>হিস্টরি</div>
-<div onclick="switchPage('profilePage',this)">👤<br>প্রোফাইল</div>
-<div onclick="switchPage('settingsPage',this)">⚙️<br>সেটিংস</div>
+  <div class="admin-body">
+    <!-- Stats -->
+    <div class="stats-grid" id="statsGrid">
+      <div class="stat-card"><div class="num" id="statTotal">0</div><div class="lbl">মোট বুকিং</div></div>
+      <div class="stat-card"><div class="num" id="statPending">0</div><div class="lbl">পেন্ডিং</div></div>
+      <div class="stat-card"><div class="num" id="statConfirmed">0</div><div class="lbl">কনফার্মড</div></div>
+      <div class="stat-card"><div class="num" id="statCompleted">0</div><div class="lbl">সম্পন্ন</div></div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="admin-tabs">
+      <button class="tab-btn active" onclick="filterBookings('all', this)">সব বুকিং</button>
+      <button class="tab-btn" onclick="filterBookings('পেমেন্ট যাচাই চলছে', this)">পেন্ডিং</button>
+      <button class="tab-btn" onclick="filterBookings('কনফার্মড', this)">কনফার্মড</button>
+      <button class="tab-btn" onclick="filterBookings('ভিসা প্রসেসিং', this)">ভিসা প্রসেসিং</button>
+      <button class="tab-btn" onclick="filterBookings('সম্পন্ন', this)">সম্পন্ন</button>
+    </div>
+
+    <!-- Bookings Table -->
+    <div id="bookingsContainer"></div>
+  </div>
 </div>
 
-<!-- Modals -->
-<div class="modal" id="loginModal"><div class="modal-content"><h3>লগইন</h3><input id="uName" placeholder="নাম"><input id="uEmail" placeholder="Gmail" onkeyup="checkGmail(this.value)"><div id="gmailCheck"></div><button class="btn" style="width:100%;margin-top:10px" onclick="userLogin()">প্রবেশ</button></div></div>
-<div class="modal" id="editProfileModal"><div class="modal-content"><h3>প্রোফাইল এডিট</h3><input id="eName"><input id="eEmail" onkeyup="checkGmail2(this.value)"><div id="gmailCheck2"></div><button class="btn" style="width:100%" onclick="saveProfile()">সেভ</button></div></div>
-<div class="modal" id="adminLoginModal"><div class="modal-content"><h3>এডমিন লগইন</h3><input id="aUser" placeholder="admin"><input id="aPass" type="password" placeholder="admin123"><button class="btn" style="width:100%" onclick="adminLogin()">লগইন</button></div></div>
-<div class="modal" id="bookModal"><div class="modal-content">
-<h3 id="bTitle"></h3>
-<div style="background:#fff1f2;border:1px dashed #e11d48;padding:10px;border-radius:12px;font-size:13px">bKash: <b id="bkashNum">01623744440</b> তে Send Money করো</div>
-<input id="bDate" type="date">
-<select id="bPerson" onchange="updateTotal()"><option value="1">1 জন</option><option value="2">2 জন</option><option value="3">3 জন</option><option value="4">4 জন</option><option value="5">5 জন</option><option value="10">10 জন</option></select>
-<div class="totalBox" id="totalBox">৳0</div>
-<input id="bTrx" placeholder="Transaction ID এখানে বসাও">
-<button class="btn" style="width:100%" onclick="confirmBooking()">কনফার্ম করো</button>
-</div></div>
+<!-- ========== BOOKING DETAIL MODAL ========== -->
+<div class="modal-overlay" id="detailModal">
+  <div class="modal" style="max-width:600px;">
+    <h3>📋 বুকিং বিস্তারিত</h3>
+    <div id="detailContent" style="margin-top:20px;"></div>
+    <button class="close-btn" onclick="closeDetail()">বন্ধ করুন</button>
+  </div>
+  </div>
+  <script>
+/* ================================================
+   ADMIN CREDENTIALS (ডেমো)
+   ================================================ */
+const ADMIN_CREDENTIALS = {
+  username: 'admin',
+  password: 'admin123'
+};
 
-<script>
-const fakeDomains=["tempmail.com","10minutemail.com","mailinator.com","yopmail.com","temp-mail.org"];
-let tours=JSON.parse(localStorage.getItem('pagol_pro_tours'))||[
-{name:"সেন্টমার্টিন",loc:"Saint Martin",price:7500,img:"https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?q=80&w=600"},
-{name:"রাঙামাটি",loc:"Rangamati",price:5000,img:"https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=600"},
-{name:"কক্সবাজার",loc:"Cox's Bazar",price:6500,img:"https://images.unsplash.com/photo-1596401057633-54a8fe8ef647?q=80&w=600"},
-{name:"সাজেক",loc:"Sajek",price:5500,img:"https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=600"}
-];
-let bookings=JSON.parse(localStorage.getItem('pagol_pro_bookings'))||[];
-let currentUser=JSON.parse(localStorage.getItem('pagol_pro_user'))||null;
-let bkashNumber=localStorage.getItem('pagol_bkash')||"01623744440";
-let selectedTour=null, basePrice=0, tempImgBase64="";
-
-function save(){localStorage.setItem('pagol_pro_tours',JSON.stringify(tours));localStorage.setItem('pagol_pro_bookings',JSON.stringify(bookings))}
-function openModal(id){document.getElementById(id).style.display='flex'} function closeModal(id){document.getElementById(id).style.display='none'}
-window.onclick=e=>{if(e.target.classList.contains('modal'))e.target.style.display='none'}
-function switchPage(id,el){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.bottom-nav div').forEach(d=>d.classList.remove('active'));el.classList.add('active');renderAll()}
-
-function checkGmail(email){let box=document.getElementById('gmailCheck');let r=/^[a-z0-9._%+-]+@gmail\.com$/;if(!email){box.innerHTML='';return false} if(fakeDomains.some(d=>email.includes(d))){box.innerHTML='<span class="fake">❌ নকল Gmail</span>';return false} if(!r.test(email)){box.innerHTML='<span class="fake">❌ শুধু @gmail.com</span>';return false} box.innerHTML='<span class="real">✅ আসল Gmail</span>';return true}
-function checkGmail2(email){let box=document.getElementById('gmailCheck2');let r=/^[a-z0-9._%+-]+@gmail\.com$/; if(!r.test(email)){box.innerHTML='<span class="fake">❌ নকল</span>';return false} box.innerHTML='<span class="real">✅ আসল</span>';return true}
-
-function previewImg(e){
-let file=e.target.files[0]; let reader=new FileReader();
-reader.onload=function(){tempImgBase64=reader.result; document.getElementById('imgPreview').src=tempImgBase64; document.getElementById('imgPreview').style.display='block';}
-reader.readAsDataURL(file);
+/* ================================================
+   COOKIE CONSENT
+   ================================================ */
+window.addEventListener('load', () => {
+  if (!localStorage.getItem('cookieConsent')) {
+    document.getElementById('cookieBanner').style.display = 'flex';
+  }
+});
+function acceptCookies() {
+  localStorage.setItem('cookieConsent', 'all');
+  document.getElementById('cookieBanner').style.display = 'none';
 }
-function addPackage(){
-let n=document.getElementById('newName').value, l=document.getElementById('newLoc').value, p=document.getElementById('newPrice').value, url=document.getElementById('newImgUrl').value;
-let img=tempImgBase64 || url || "https://images.unsplash.com/photo-1500835556837-99ac94a94552?q=80&w=600";
-if(!n||!p) return alert('নাম ও দাম দাও');
-tours.push({name:n,loc:l,price:parseInt(p),img:img}); save(); renderTours(); alert('✅ নতুন প্যাকেজ + লোগো যোগ হয়েছে!');
-document.getElementById('newName').value='';document.getElementById('newPrice').value='';tempImgBase64='';
+function declineCookies() {
+  localStorage.setItem('cookieConsent', 'essential');
+  document.getElementById('cookieBanner').style.display = 'none';
 }
-function renderTours(){document.getElementById('tourGrid').innerHTML=tours.map((t,i)=>`<div class="card"><img src="${t.img}"><div class="card-body"><b>${t.name}</b> - <small>${t.loc}</small><div style="display:flex;justify-content:space-between;margin-top:8px"><b>৳${t.price}</b><button class="btn" onclick="openBook(${i})">বুক করো</button></div></div></div>`).join('')}
-function openBook(i){if(!currentUser) return openModal('loginModal'); selectedTour=tours[i]; basePrice=selectedTour.price; document.getElementById('bTitle').innerText=selectedTour.name; document.getElementById('bkashNum').innerText=bkashNumber; document.getElementById('bPerson').value="1"; updateTotal(); openModal('bookModal');}
-function updateTotal(){let person=parseInt(document.getElementById('bPerson').value)||1; let total=basePrice*person; document.getElementById('totalBox').innerText=`৳${basePrice} x ${person} জন = ৳${total}`; document.getElementById('totalBox').dataset.total=total}
-function confirmBooking(){let d=document.getElementById('bDate').value, p=document.getElementById('bPerson').value, trx=document.getElementById('bTrx').value; let total=document.getElementById('totalBox').dataset.total; if(!d) return alert('তারিখ দাও'); if(trx.length<4) return alert('TrxID দাও'); bookings.push({userName:currentUser.name,email:currentUser.email,tourName:selectedTour.name,unitPrice:basePrice,person:p,total:total,date:d,trx:trx,status:'pending'}); save(); closeModal('bookModal'); renderAll(); alert(`বুকিং গেছে! মোট ৳${total}`);}
-function renderAll(){
-if(!currentUser){return}
-document.getElementById('userName').innerText='Hi, '+currentUser.name;
-document.getElementById('pName').innerText=currentUser.name; document.getElementById('pEmail').innerText=currentUser.email; document.getElementById('pBkash').innerText=bkashNumber; document.getElementById('sEmail').innerText=currentUser.email;
-let isReal=/^[a-z0-9._%+-]+@gmail\.com$/.test(currentUser.email) &&!fakeDomains.some(d=>currentUser.email.includes(d));
-document.getElementById('pEmailStatus').innerHTML=isReal?'<span class="real">✅ আসল</span>':'<span class="fake">❌ নকল</span>';
-document.getElementById('sGmailStatus').innerHTML=isReal?'<span class="real">✅ আসল</span>':'<span class="fake">❌ নকল</span>';
-let my=bookings.filter(b=>b.email==currentUser.email);
-document.getElementById('totalBook').innerText=my.length; document.getElementById('totalConfirm').innerText=my.filter(b=>b.status=='confirmed').length; document.getElementById('totalPending').innerText=my.filter(b=>b.status=='pending').length;
-let html=my.map(b=>`<div style="background:#fff;padding:12px;border-radius:12px;margin-bottom:8px;display:flex;justify-content:space-between"><div><b>${b.tourName}</b><br><small>৳${b.unitPrice} x ${b.person} = ৳${b.total} | ${b.date}</small><br><small>Trx: ${b.trx}</small></div><div><span class="badge ${b.status}">${b.status}</span></div></div>`).join('')||'<small>কোনো বুকিং নেই</small>';
-document.getElementById('dashBookings').innerHTML=html; document.getElementById('historyList').innerHTML=html;
-document.getElementById('adminTable').innerHTML=bookings.map((b,i)=>`<tr><td>${b.userName}<br><small>${b.email}</small></td><td>${b.tourName}<br>৳${b.total}</td><td><b>${b.trx}</b></td><td>${b.status=='pending'?`<button class="btn" style="padding:4px 8px;font-size:11px" onclick="acceptBook(${i})">Accept</button> <button class="btn" style="padding:4px 8px;background:#64748b" onclick="rejectBook(${i})">Reject</button>`:`<span class="badge ${b.status}">${b.status}</span>`}</td></tr>`).join('');
-}
-function userLogin(){let n=document.getElementById('uName').value, e=document.getElementById('uEmail').value; if(!checkGmail(e)) return alert('আসল Gmail দাও'); if(!n) return alert('নাম দাও'); currentUser={name:n,email:e}; localStorage.setItem('pagol_pro_user',JSON.stringify(currentUser)); document.getElementById('userName').innerText='Hi, '+n; document.getElementById('authBtn').innerText='লগআউট'; document.getElementById('authBtn').onclick=()=>{localStorage.removeItem('pagol_pro_user');location.reload()}; closeModal('loginModal'); document.getElementById('adminControls').style.display='none'; renderAll(); renderTours();}
-function saveProfile(){let n=document.getElementById('eName').value, e=document.getElementById('eEmail').value; if(!n||!e) return alert('পূরণ করো'); currentUser={name:n,email:e}; localStorage.setItem('pagol_pro_user',JSON.stringify(currentUser)); closeModal('editProfileModal'); renderAll(); alert('প্রোফাইল আপডেট হয়েছে');}
-function adminLogin(){if(document.getElementById('aUser').value=='admin' && document.getElementById('aPass').value=='admin123'){closeModal('adminLoginModal'); document.getElementById('adminControls').style.display='block'; switchPage('profilePage',document.querySelectorAll('.bottom-nav div')[3]); renderAll();}else alert('ভুল')}
-function acceptBook(i){bookings[i].status='confirmed';save();renderAll()} function rejectBook(i){bookings[i].status='rejected';save();renderAll()}
-function changeBkash(){let nb=prompt('নতুন bKash নাম্বার দাও:',bkashNumber); if(nb){bkashNumber=nb; localStorage.setItem('pagol_bkash',nb); alert('bKash নাম্বার চেঞ্জ হয়েছে: '+nb); renderAll()}}
-function clearData(){if(confirm('সব বুকিং মুছবে?')){localStorage.removeItem('pagol_pro_bookings');bookings=[];renderAll();}}
 
-if(currentUser){document.getElementById('userName').innerText='Hi, '+currentUser.name; document.getElementById('authBtn').innerText='লগআউট'; document.getElementById('authBtn').onclick=()=>{localStorage.removeItem('pagol_pro_user');location.reload()}; document.getElementById('eName').value=currentUser.name; document.getElementById('eEmail').value=currentUser.email; document.getElementById('sEmail').innerText=currentUser.email;}
-renderTours(); renderAll();
+/* ================================================
+   SERVICE TOGGLE (Logo Click)
+   ================================================ */
+function toggleService(card) {
+  const targetId = card.getAttribute('data-target');
+  const targetPanel = document.getElementById(targetId);
+  const allCards = document.querySelectorAll('.service-card');
+  const allPanels = document.querySelectorAll('.expand-panel');
+
+  // যদি ইতিমধ্যে open থাকে, তাহলে ক্লোজ করি
+  if (targetPanel.classList.contains('open')) {
+    targetPanel.classList.remove('open');
+    card.classList.remove('active');
+    return;
+  }
+
+  // সব কার্ড ও প্যানেল বন্ধ করি
+  allCards.forEach(c => c.classList.remove('active'));
+  allPanels.forEach(p => p.classList.remove('open'));
+
+  // এই কার্ড ও প্যানেল খুলি
+  card.classList.add('active');
+  targetPanel.classList.add('open');
+
+  // Smooth scroll
+  setTimeout(() => {
+    targetPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 200);
+}
+
+/* ================================================
+   BOOKING SYSTEM
+   ================================================ */
+let orders = JSON.parse(localStorage.getItem('skyOrders') || '{}');
+
+function selectPackage(name, price) {
+  document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+  const sel = document.getElementById('packageSelect');
+  let found = false;
+  for (let opt of sel.options) {
+    if (opt.value.startsWith(name)) {
+      sel.value = opt.value;
+      found = true;
+      break;
+    }
+  }
+  if (!found) {
+    const newOpt = document.createElement('option');
+    newOpt.value = name + '|' + price;
+    newOpt.textContent = name + ' - ৳' + price;
+    sel.appendChild(newOpt);
+    sel.value = newOpt.value;
+  }
+}
+
+function submitBooking(e) {
+  e.preventDefault();
+  const orderId = 'SKY-' + Date.now().toString().slice(-8);
+  const pkgVal = document.getElementById('packageSelect').value.split('|');
+  const order = {
+    id: orderId,
+    name: document.getElementById('fullName').value,
+    phone: document.getElementById('phone').value,
+    email: document.getElementById('email').value,
+    nid: document.getElementById('nid').value,
+    passport: document.getElementById('passport').value,
+    package: pkgVal[0],
+    price: pkgVal[1],
+    persons: document.getElementById('persons').value,
+    payment: document.getElementById('paymentMethod').value,
+    screenshot: document.getElementById('paymentSS').files[0]?.name || 'N/A',
+    note: document.getElementById('note').value,
+    status: 'পেমেন্ট যাচাই চলছে',
+    progress: 30,
+    date: new Date().toLocaleString('bn-BD')
+  };
+  orders[orderId] = order;
+  localStorage.setItem('skyOrders', JSON.stringify(orders));
+
+  alert(`✅ বুকিং সফল!\n\nআপনার অর্ডার আইডি: ${orderId}\n\nএই আইডি সংরক্ষণ করুন।`);
+
+  document.getElementById('bookingForm').reset();
+  document.getElementById('trackId').value = orderId;
+  document.getElementById('tracker').scrollIntoView({ behavior: 'smooth' });
+}
+
+/* ================================================
+   TRACKER
+   ================================================ */
+function trackOrder() {
+  const id = document.getElementById('trackId').value.trim().toUpperCase();
+  const res = document.getElementById('trackerResult');
+  const order = orders[id];
+
+  if (!order) {
+    if (id.startsWith('SKY-')) {
+      document.getElementById('resId').textContent = id;
+      document.getElementById('resName').textContent = 'ডেমো গ্রাহক';
+      document.getElementById('resPkg').textContent = 'ডেমো প্যাকেজ';
+      document.getElementById('resStatus').textContent = 'প্রসেসিং';
+      document.getElementById('resProgress').style.width = '60%';
+      document.getElementById('resDate').textContent = new Date().toLocaleString('bn-BD');
+      res.style.display = 'block';
+    } else {
+      res.style.display = 'none';
+      alert('❌ অর্ডার আইডি খুঁজে পাওয়া যায়নি।');
+    }
+    return;
+  }
+
+  document.getElementById('resId').textContent = order.id;
+  document.getElementById('resName').textContent = order.name;
+  document.getElementById('resPkg').textContent = order.package;
+  document.getElementById('resStatus').textContent = order.status;
+  document.getElementById('resProgress').style.width = (order.progress || 30) + '%';
+  document.getElementById('resDate').textContent = order.date;
+  res.style.display = 'block';
+}
+
+/* ================================================
+   ADMIN LOGIN
+   ================================================ */
+function openAdminLogin(e) {
+  if (e) e.preventDefault();
+  // যদি আগে থেকেই লগইন থাকে
+  if (sessionStorage.getItem('adminLoggedIn') === 'true') {
+    openAdminPanel();
+    return;
+  }
+  document.getElementById('adminLoginModal').classList.add('show');
+  document.getElementById('adminUser').value = '';
+  document.getElementById('adminPass').value = '';
+  document.getElementById('loginError').style.display = 'none';
+}
+
+function closeAdminLogin() {
+  document.getElementById('adminLoginModal').classList.remove('show');
+}
+
+function adminLogin() {
+  const user = document.getElementById('adminUser').value.trim();
+  const pass = document.getElementById('adminPass').value;
+  const errBox = document.getElementById('loginError');
+
+  if (user === ADMIN_CREDENTIALS.username && pass === ADMIN_CREDENTIALS.password) {
+    sessionStorage.setItem('adminLoggedIn', 'true');
+    sessionStorage.setItem('adminName', user);
+    closeAdminLogin();
+    openAdminPanel();
+  } else {
+    errBox.style.display = 'block';
+    setTimeout(() => { errBox.style.display = 'none'; }, 3000);
+  }
+}
+
+function adminLogout() {
+  sessionStorage.removeItem('adminLoggedIn');
+  sessionStorage.removeItem('adminName');
+  document.getElementById('adminPanel').classList.remove('show');
+  document.body.style.overflow = 'auto';
+}
+
+function openAdminPanel() {
+  document.getElementById('adminPanel').classList.add('show');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('adminName').textContent = sessionStorage.getItem('adminName') || 'Admin';
+  renderBookings('all');
+  updateStats();
+}
+
+/* ================================================
+   ADMIN DASHBOARD
+   ================================================ */
+let currentFilter = 'all';
+
+function updateStats() {
+  const all = Object.values(orders);
+  document.getElementById('statTotal').textContent = all.length;
+  document.getElementById('statPending').textContent = all.filter(o => o.status === 'পেমেন্ট যাচাই চলছে').length;
+  document.getElementById('statConfirmed').textContent = all.filter(o => o.status === 'কনফার্মড').length;
+  document.getElementById('statCompleted').textContent = all.filter(o => o.status === 'সম্পন্ন').length;
+}
+
+function filterBookings(filter, btn) {
+  currentFilter = filter;
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  renderBookings(filter);
+}
+
+function renderBookings(filter) {
+  orders = JSON.parse(localStorage.getItem('skyOrders') || '{}');
+  const container = document.getElementById('bookingsContainer');
+  let list = Object.values(orders);
+  if (filter !== 'all') list = list.filter(o => o.status === filter);
+  list.sort((a, b) => b.id.localeCompare(a.id));
+
+  if (list.length === 0) {
+    container.innerHTML = '<div class="empty-msg">📭 কোন বুকিং পাওয়া যায়নি</div>';
+    updateStats();
+    return;
+  }
+
+  let html = `<table class="admin-table"><thead><tr>
+    <th>অর্ডার আইডি</th><th>নাম</th><th>মোবাইল</th>
+    <th>প্যাকেজ</th><th>পেমেন্ট</th><th>স্ট্যাটাস</th><th>অ্যাকশন</th>
+  </tr></thead><tbody>`;
+
+  list.forEach(o => {
+    const statusOptions = ['পেমেন্ট যাচাই চলছে','কনফার্মড','ভিসা প্রসেসিং','সম্পন্ন','বাতিল'];
+    let statusSelect = `<select class="status-select" onchange="changeStatus('${o.id}', this.value)">`;
+    statusOptions.forEach(s => {
+      statusSelect += `<option value="${s}" ${s === o.status ? 'selected' : ''}>${s}</option>`;
+    });
+    statusSelect += `</select>`;
+
+    html += `<tr>
+      <td><b>${o.id}</b></td>
+      <td>${o.name}</td>
+      <td>${o.phone}</td>
+      <td>${o.package}</td>
+      <td>${o.payment}</td>
+      <td>${statusSelect}</td>
+      <td>
+        <button class="action-btn btn-view" onclick="viewBooking('${o.id}')">দেখুন</button>
+        <button class="action-btn btn-del" onclick="deleteBooking('${o.id}')">ডিলিট</button>
+      </td>
+    </tr>`;
+  });
+
+  html += '</tbody></table>';
+  container.innerHTML = html;
+  updateStats();
+}
+
+function changeStatus(orderId, newStatus) {
+  if (!orders[orderId]) return;
+  orders[orderId].status = newStatus;
+  // Progress update
+  const progressMap = {
+    'পেমেন্ট যাচাই চলছে': 30,
+    'কনফার্মড': 55,
+    'ভিসা প্রসেসিং': 75,
+    'সম্পন্ন': 100,
+    'বাতিল': 0
+  };
+  orders[orderId].progress = progressMap[newStatus] || 30;
+  orders[orderId].date = new Date().toLocaleString('bn-BD');
+  localStorage.setItem('skyOrders', JSON.stringify(orders));
+  renderBookings(currentFilter);
+}
+
+function deleteBooking(orderId) {
+  if (!confirm(`আপনি কি নিশ্চিত "${orderId}" ডিলিট করতে চান?`)) return;
+  delete orders[orderId];
+  localStorage.setItem('skyOrders', JSON.stringify(orders));
+  renderBookings(currentFilter);
+}
+
+function viewBooking(orderId) {
+  const o = orders[orderId];
+  if (!o) return;
+  const html = `
+    <div class="detail-row"><strong>অর্ডার আইডি:</strong><span>${o.id}</span></div>
+    <div class="detail-row"><strong>নাম:</strong><span>${o.name}</span></div>
+    <div class="detail-row"><strong>মোবাইল:</strong><span>${o.phone}</span></div>
+    <div class="detail-row"><strong>ইমেইল:</strong><span>${o.email || 'N/A'}</span></div>
+    <div class="detail-row"><strong>NID:</strong><span>${o.nid}</span></div>
+    <div class="detail-row"><strong>পাসপোর্ট:</strong><span>${o.passport}</span></div>
+    <div class="detail-row"><strong>প্যাকেজ:</strong><span>${o.package}</span></div>
+    <div class="detail-row"><strong>মূল্য:</strong><span>৳ ${o.price}</span></div>
+    <div class="detail-row"><strong>যাত্রী:</strong><span>${o.persons} জন</span></div>
+    <div class="detail-row"><strong>পেমেন্ট:</strong><span>${o.payment}</span></div>
+    <div class="detail-row"><strong>স্ক্রিনশট:</strong><span>${o.screenshot}</span></div>
+    <div class="detail-row"><strong>নোট:</strong><span>${o.note || 'N/A'}</span></div>
+    <div class="detail-row"><strong>স্ট্যাটাস:</strong><span>${o.status}</span></div>
+    <div class="detail-row"><strong>তারিখ:</strong><span>${o.date}</span></div>
+  `;
+  document.getElementById('detailContent').innerHTML = html;
+  document.getElementById('detailModal').classList.add('show');
+}
+
+function closeDetail() {
+  document.getElementById('detailModal').classList.remove('show');
+}
+
+/* ========== LOGIN FORM ENTER KEY ========== */
+document.addEventListener('DOMContentLoaded', () => {
+  const passField = document.getElementById('adminPass');
+  if (passField) {
+    passField.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') adminLogin();
+    });
+  }
+});
+
+/* ========== ESC KEY ========== */
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    closeAdminLogin();
+    closeDetail();
+      }
+});
 </script>
+
 </body>
 </html>
+  
